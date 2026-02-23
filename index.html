@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment Dashboard</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <button class="close-sidebar">✕</button>
+        <h1 class="logo"><img src="./assets/images/logox.gif" alt="" /></h1>
+
+        <nav class="nav">
+          <a href="#" class="active">Dashboard</a>
+          <a href="#">Portfolio</a>
+          <a href="#">Activity</a>
+          <a href="#">Settings</a>
+        </nav>
+      </aside>
+      <div class="overlay"></div>
+      <main class="main">
+        <header class="topbar">
+          <button class="menu-toggle" aria-label="Toggle sidebar">☰</button>
+          <h2>Dashboard</h2>
+        </header>
+
+        <section class="content">
+          <!--KPI-->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <p class="kpi-label">Total Balance</p>
+              <h3 class="kpi-value">$24,580</h3>
+            </div>
+
+            <div class="kpi-card">
+              <p class="kpi-label">Monthly Profit</p>
+              <h3 class="kpi-value positive">+$1,240</h3>
+            </div>
+
+            <div class="kpi-card">
+              <p class="kpi-label">Active Investments</p>
+              <h3 class="kpi-value">12</h3>
+            </div>
+          </div>
+          <!--active state-->
+          <div class="activity-card">
+            <h3>Recent Activity</h3>
+
+            <ul class="activity-list">
+              <li class="activity-item">
+                <div>
+                  <p class="activity-title">Bought AAPL</p>
+                  <p class="activity-date">Feb 12, 2026</p>
+                </div>
+                <span class="activity-amount positive">+$1,200</span>
+              </li>
+
+              <li class="activity-item">
+                <div>
+                  <p class="activity-title">Sold TSLA</p>
+                  <p class="activity-date">Feb 10, 2026</p>
+                </div>
+                <span class="activity-amount negative">-$850</span>
+              </li>
+
+              <li class="activity-item">
+                <div>
+                  <p class="activity-title">Dividend - MSFT</p>
+                  <p class="activity-date">Feb 05, 2026</p>
+                </div>
+                <span class="activity-amount positive">+$240</span>
+              </li>
+            </ul>
+          </div>
+          <!-- //////////////////////////////////////////// -->
+          <!--empty state show-->
+          <!-- <div class="empty-state">
+            <h3>No activity yet</h3>
+            <p>Your transactions will appear here once you start investing.</p>
+            <button class="primary-btn">Start Investing</button>
+          </div> -->
+          <!-- ///////////////////////////////////////////////// -->
+          <!--loading state skeleton-->
+          <!-- <div class="activity-card">
+            <h3>Recent Activity</h3>
+
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+          </div> -->
+        </section>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const openBtn = document.querySelector(".menu-toggle");
+        const closeBtn = document.querySelector(".close-sidebar");
+        const sidebar = document.querySelector(".sidebar");
+        const overlay = document.querySelector(".overlay");
+
+        function openSidebar() {
+          sidebar.classList.add("open");
+          overlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeSidebar() {
+          sidebar.classList.remove("open");
+          overlay.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        openBtn.addEventListener("click", openSidebar);
+        closeBtn.addEventListener("click", closeSidebar);
+        overlay.addEventListener("click", closeSidebar);
+      });
+    </script>
+  </body>
+</html>
